@@ -18,8 +18,8 @@ const moment  = require('moment');
 const privateKey        = process.env.HOME + "/.ssh/id_rsa";
 
 const user              = 'deploy';
-const appName           = 'tello';
-const newDirectoryName  = 'tello_' + moment().format('YYYY-MM-DD_hh[h]mm[m]ss[s]');
+const appName           = 'Track-TV';
+const newDirectoryName  = 'Track-TV_' + moment().format('YYYY-MM-DD_hh[h]mm[m]ss[s]');
 
 const tempDir           = `/tmp/${newDirectoryName}`;
 const projectDir        = `/home/${user}/${appName}`;
@@ -59,7 +59,6 @@ plan.local( 'deploy', local => {
     local.log('Skipping webpack bundle.')
   }
 
-  // Yay working with filesystems. How I miss regex.
   local.log('Copying files to remote')
   const dist      = local.find('public', {silent: true}).stdout.split('\n');
   const common    = local.find('build', {silent: true}).stdout.split('\n');
