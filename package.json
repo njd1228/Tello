@@ -9,7 +9,6 @@
     "test": "node scripts/test.js --env=jsdom",
     "flow": "flow",
     "deploy": "NODE_ENV=production fly deploy:production",
-    "deploy:no-build": "yarn deploy -- --skip-build",
     "restart:server": "fly restart:production",
     "stats": "NODE_ENV=production webpack --config config/webpack.config.prod.js --json > stats.json",
     "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\""
@@ -68,11 +67,11 @@
     "prettier": "^1.8.2",
     "promise": "8.0.1",
     "prop-types": "next",
-    "react": "next",
+    "react": "16.8.2",
     "react-confirm": "^0.1.15",
     "react-dev-utils": "^3.1.0",
     "react-dom": "next",
-    "react-emotion": "^8.0.10",
+    "react-emotion": "^10.0.7",
     "react-error-overlay": "^1.0.10",
     "react-flip-move": "2.9.15",
     "react-icons": "^2.2.5",
@@ -112,7 +111,7 @@
       "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
     ],
     "testEnvironment": "node",
-    "testURL": "http://localhost",
+    "testURL": "http://localhost3000",
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",

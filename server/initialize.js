@@ -11,8 +11,7 @@ const DEFAULT_CONFIG  = './server/config/defaults.json';
 const PRIVATE_CONFIG  = './server/config/private.json';
 
 // The whole config thing is a little confusing when it comes to deployment.
-// Locally, we'll run `development.json`. We also have a `private.json`,
-// for stuff we don't want to store in Git.
+// Locally, we'll run `development.json`. We also have a `private.json`
 //
 // In production, we don't need both a `production.json` and a `private.json`,
 // because the server's `production.json` IS private.

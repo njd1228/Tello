@@ -10,8 +10,8 @@ const compression = require('compression');
 require('./initialize');
 require('./db');
 
-const { getPublicUser } = require('./models/User.model');
-const { authenticatedRoute, jwtAuthentication } = require('./middleware');
+const { getPublicUser } = require('./User.model');
+const { authenticatedRoute, jwtAuthentication } = require('../middleware');
 
 
 ////////////////////////////////////
@@ -26,7 +26,7 @@ app.set('port', nconf.get('PORT') || 3005);
 app.use(passport.initialize());
 app.use(compression());
 
-require('./config/passport')(passport);
+require('../config/passport')(passport);
 
 app.use(bodyParser.json({ limit: '1mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,8 +50,6 @@ app.get(
   (req, res) => {
     // On localhost, this API runs on port 3005.
     // The actual dev webserver is on 3000, though.
-    // Because of that, I can't simply set a cookie to pass the login token
-    // to the client :/
     const {token} = req.user;
 
     if (process.env.NODE_ENV === 'development') {
